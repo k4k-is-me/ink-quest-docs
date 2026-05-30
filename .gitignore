@@ -3,3 +3,13 @@
 
 # Исключение — сам .gitignore должен попасть в репозиторий
 !.gitignore
+
+# GitHub Actions workflow должен попасть в репозиторий
+!.github/
+!.github/**
+
+# Собранный сайт MkDocs
+site/
+
+/site/
+/CLAUDE.md

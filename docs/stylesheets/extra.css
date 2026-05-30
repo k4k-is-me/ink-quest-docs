@@ -1,0 +1,133 @@
+/* ============================================================
+   InkQuest — «Книга квестов»
+   Фэнтезийный книжный стиль: пергамент, чернила, золотое тиснение.
+   Заголовочный шрифт Forum подгружается отдельно (есть кириллица).
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+/* ─────────────────────────────────────────────
+   ДНЕВНАЯ ТЕМА — «Пергамент»
+   ───────────────────────────────────────────── */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color:          #f4ead2;  /* пергамент */
+  --md-default-fg-color:          #2f2618;  /* чернила */
+  --md-default-fg-color--light:   #5a4a33;
+  --md-default-fg-color--lighter: #8a7553;
+  --md-default-fg-color--lightest:#c9b793;
+
+  --md-primary-fg-color:          #4a3326;  /* кожаный переплёт (шапка) */
+  --md-primary-fg-color--light:   #5e4233;
+  --md-primary-fg-color--dark:    #382518;
+  --md-primary-bg-color:          #f4ead2;  /* текст на шапке — пергамент */
+  --md-primary-bg-color--light:   #e6d6b3;
+
+  --md-accent-fg-color:           #9a6a1c;  /* золотая охра */
+
+  --md-typeset-a-color:           #8a4b24;  /* ссылки — медь/сангина */
+  --md-typeset-mark-color:        #e7c66a80;
+
+  --md-code-bg-color:             #ece0c4;  /* чуть темнее пергамента */
+  --md-code-fg-color:             #3a2d1c;
+
+  --md-footer-bg-color:           #382518;
+  --md-footer-bg-color--dark:     #2c1d12;
+}
+
+/* Тонкая «бумажная» виньетка по краям листа */
+[data-md-color-scheme="default"] body {
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, rgba(255,251,240,.6), transparent 60%),
+    radial-gradient(140% 90% at 50% 110%, rgba(120,85,40,.10), transparent 55%);
+  background-attachment: fixed;
+}
+
+/* ─────────────────────────────────────────────
+   НОЧНАЯ ТЕМА — «Ночной том»
+   ───────────────────────────────────────────── */
+[data-md-color-scheme="slate"] {
+  --md-hue: 30;                              /* тёплый тон для slate */
+  --md-default-bg-color:          #1d1712;  /* тёмная кожа */
+  --md-default-fg-color:          #ead9b8;  /* кремовые чернила */
+  --md-default-fg-color--light:   #c4b58f;
+  --md-default-fg-color--lighter: #95825f;
+  --md-default-fg-color--lightest:#4a3d2a;
+
+  --md-primary-fg-color:          #271d15;  /* почти чёрный переплёт */
+  --md-primary-fg-color--light:   #3a2c20;
+  --md-primary-fg-color--dark:    #181009;
+  --md-primary-bg-color:          #ead9b8;
+
+  --md-accent-fg-color:           #d8a948;  /* янтарь/золото */
+
+  --md-typeset-a-color:           #d8a948;  /* ссылки — золото */
+
+  --md-code-bg-color:             #251c14;
+  --md-code-fg-color:             #ead9b8;
+
+  --md-footer-bg-color:           #181009;
+  --md-footer-bg-color--dark:     #120b06;
+}
+
+/* ─────────────────────────────────────────────
+   КНИЖНЫЕ ЗАГОЛОВКИ — антиква Forum
+   ───────────────────────────────────────────── */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: "Forum", "Lora", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: .015em;
+}
+
+.md-typeset h1 {
+  color: var(--md-default-fg-color);
+  font-size: 2.1em;
+}
+
+/* Орнаментальная линия под разделами — как тиснение на странице */
+.md-typeset h2 {
+  border-bottom: 1px solid var(--md-accent-fg-color);
+  padding-bottom: .25rem;
+  margin-top: 2.2rem;
+}
+
+/* Логотип/название в шапке тоже книжной антиквой */
+.md-header__title,
+.md-nav__title {
+  font-family: "Forum", "Lora", Georgia, serif;
+  letter-spacing: .02em;
+}
+
+/* ─────────────────────────────────────────────
+   ВЫНОСКИ-МАРГИНАЛИИ (blockquote и > ⚠ заметки)
+   ───────────────────────────────────────────── */
+.md-typeset blockquote {
+  border-left: .25rem solid var(--md-accent-fg-color);
+  background: color-mix(in srgb, var(--md-accent-fg-color) 9%, transparent);
+  border-radius: 0 .15rem .15rem 0;
+}
+
+/* Горизонтальный разделитель — тёплая золотая черта */
+.md-typeset hr {
+  border-bottom: 1px solid color-mix(in srgb, var(--md-accent-fg-color) 50%, transparent);
+}
+
+/* Инлайн-код и блоки — мягкая рамка «под бумагу» */
+.md-typeset code,
+.md-typeset pre > code {
+  border-radius: .2rem;
+}
+.md-typeset :not(pre) > code {
+  border: 1px solid color-mix(in srgb, var(--md-default-fg-color) 12%, transparent);
+}
+
+/* Шапка с лёгкой кожаной фактурой (мягкий вертикальный градиент) */
+.md-header {
+  background-image: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--md-primary-fg-color) 100%, white 6%),
+    var(--md-primary-fg-color)
+  );
+  box-shadow: 0 0 .4rem rgba(0,0,0,.4);
+}
