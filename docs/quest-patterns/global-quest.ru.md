@@ -281,6 +281,6 @@ execute as @a[tag=voted,tag=!counted] run function event:count_vote
 ## См. также
 
 - [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md) — спецификация условия `score`, включая виртуальных игроков
-- [ХУКИ ЖИЗНЕННОГО ЦИКЛА ЗАДАЧИ](/datapack-reference/task-lifecycle-hooks.md) — там же раздел «Счётчик зомби на весь сервер» с полным примером накопления
+- [ХУКИ ЖИЗНЕННОГО ЦИКЛА ЗАДАЧИ](/datapack-reference/task-lifecycle-hooks.md) — спецификация хуков `load`, `tick`, `success` и других, что используются здесь
 - [ЗАДАЧА С ДВУМЯ ИСХОДАМИ](/quest-patterns/task-with-two-outcomes.md) — как добавить таймер провала для ивента
 - [ПОВТОРЯЕМЫЙ КВЕСТ](/quest-patterns/repeatable-quest.md) — для еженедельных ивентов с перезапуском
