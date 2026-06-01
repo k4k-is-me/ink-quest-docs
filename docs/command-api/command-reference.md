@@ -201,6 +201,8 @@ Completes the unfinished tasks of **all stages** (`success required` by default)
 
 **Errors:** the quest does not exist · the player is not tracking it · the quest is already finished.
 
+> **Quest completion lands on the next tick.** Any form of `quest complete` marks the tasks finished at once, but the quest itself turns `complete` (and unlocks quests that depend on it via `after`) only on the next server tick. So "complete a task → check the quest right away" won't work in a single function: a following `execute if quest … complete` will still find the quest active — defer the check to the next tick. Automatic completion by a task's condition has no such lag: the task and the quest finish on the same tick. See [Quest structure](/how-quests-work/quest-structure.md#how-a-quests-outcome-is-built).
+
 ---
 
 ## Pinning in the HUD
