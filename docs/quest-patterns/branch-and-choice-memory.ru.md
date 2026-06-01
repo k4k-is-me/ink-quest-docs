@@ -240,7 +240,7 @@ scoreboard objectives setdisplay sidebar global
 "speak": {
   "condition": {
     "success": { "type": "tasks", "status": "success", "count": 1 },
-    "failure": { "type": "score", "objective": "ch1_timer", "initial": 6000, "target": 0 }
+    "failure": { "type": "score", "objective": "ch1_timer", "from": 6000, "to": 0 }
   },
   "on": {
     "failure": { "tags": ["story.ch1.path_default"] }

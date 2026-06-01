@@ -40,11 +40,12 @@ A condition is an object with a `type` field and a set of fields unique to that 
 }
 ```
 
-There are exactly six types. There are no others — an unknown `type` causes a quest load error.
+There are exactly seven types. There are no others — an unknown `type` causes a quest load error.
 
 | Type | What it checks | HUD |
 |---|---|---|
-| [`score`](#score-condition-score) | A scoreboard objective's value | Progress bar |
+| [`score`](#score-condition-score) | A scoreboard objective's value for the context player | Progress bar |
+| [`global_score`](#global-counter-global_score) | A scoreboard objective's value for a fixed holder | Progress bar |
 | [`predicate`](#predicate-condition-predicate) | A Minecraft predicate | Binary |
 | [`all`](#composite-condition-all) | All nested conditions | Progress bar (met / total) |
 | [`any`](#composite-condition-any) | At least one nested condition | Binary |
@@ -62,19 +63,19 @@ A **binary** condition is either met or not — it shows no progress bar under t
 	"type": "score",
 	"objective": "<string>",
 	"criterion": "<ScoreboardCriterion>",
-	"player": "<string>",
-	"initial": "<int>",
-	"target": "<int>"
+	"from": 0,
+	"to": "<int>",
+	"reset": true
 }
 ```
 
-Uses Minecraft's scoreboard system. A task with this condition shows a progress bar in the HUD.
+Uses Minecraft's scoreboard system. Checks the **context player's** score (the one doing the quest). A task with this condition shows a progress bar in the HUD.
 
 - `objective` — *required*. The scoreboard objective's name. If no such objective exists, it is created with the type from `criterion` when the task loads.
 - `criterion` — the objective's type **at the moment it is created**. If an objective with this name already exists, the field is ignored. Any type Minecraft supports is allowed (full list on the [wiki](https://minecraft.wiki/w/Scoreboard#Criteria)). Default: `"dummy"`.
-- `player` — the name of the player whose score is checked. Supports fake players (just like the scoreboard), but not selectors. If omitted, the score of the player doing the quest is checked.
-- `initial` — the score set for the player when the task loads. If omitted, the score isn't overwritten (the player's current value in the objective is used).
-- `target` — *required*. The value the score must reach. If `initial` is set and is **greater** than `target`, the condition works in reverse: the score must drop below `target`.
+- `from` — the starting point. Default: `0`. If `from > to`, the condition works in **reverse**: the score must drop below `to`. Also defines the zero baseline for the progress bar.
+- `to` — *required*. The target value. Ascending: `score >= to`. Descending: `score <= to`.
+- `reset` — if `true` (default), the player's score in `objective` is set to `from` when the task loads. If `false`, the score is left untouched: the condition tracks the current value.
 
 ### Examples
 
@@ -84,21 +85,66 @@ Uses Minecraft's scoreboard system. A task with this condition shows a progress 
 	"type": "score",
 	"objective": "oak_logs_mined",
 	"criterion": "minecraft.mined:minecraft.oak_log",
-	"target": 5
+	"to": 5
 }
 ```
 
-#### Kill 10,000 zombies server-wide
-This needs some extra setup through lifecycle hooks (see [Task lifecycle hooks](/datapack-reference/task-lifecycle-hooks.md)).
-
+#### Survive a countdown timer (30 seconds = 600 ticks)
 ```json
 {
 	"type": "score",
-	"objective": "zombies_killed_total",
-	"player": "GLOBAL",
-	"target": 10000
+	"objective": "my_timer",
+	"from": 600,
+	"to": 0
 }
 ```
+
+The score is set to 600 when the task loads. Each tick it decreases (via `on.tick` or another mechanism). The condition fires when the score reaches 0.
+
+#### Track an existing counter without resetting it
+```json
+{
+	"type": "score",
+	"objective": "blocks_placed",
+	"criterion": "minecraft.custom:minecraft.mine_block",
+	"to": 100,
+	"reset": false
+}
+```
+
+---
+
+## Global counter (`global_score`)
+
+```json
+{
+	"type": "global_score",
+	"objective": "<string>",
+	"player": "#GLOBAL",
+	"from": 0,
+	"to": "<int>"
+}
+```
+
+Like `score`, but checks the score of a **fixed holder** (`player`) instead of the context player. The objective criterion is always `dummy` — this type is for counters managed externally by functions and commands. The scoreboard value is **never written** when the task loads: with many players, each load would otherwise reset the shared counter.
+
+- `objective` — *required*. The scoreboard objective's name (created as `dummy` if it doesn't exist).
+- `player` — the holder's name. Supports fake players. Default: `"#GLOBAL"`.
+- `from` — the starting baseline (determines direction and the zero point of the progress bar). Default: `0`.
+- `to` — *required*. The target value.
+
+### Example
+
+#### Kill 10,000 zombies server-wide
+```json
+{
+	"type": "global_score",
+	"objective": "zombies_killed_total",
+	"to": 10000
+}
+```
+
+Full breakdown of this pattern: [Global quest](/quest-patterns/global-quest.md).
 
 ---
 
@@ -140,7 +186,7 @@ Conditions inside `all` can be of any type and nested within one another without
 		{
 			"type": "score",
 			"objective": "gold_collected",
-			"target": 100
+			"to": 100
 		},
 		{
 			"type": "predicate",
