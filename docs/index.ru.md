@@ -8,7 +8,7 @@ InkQuest не ограничен типами задач вроде "убей X 
 
 ## С чего начать
 
-Если вы здесь впервые — откройте [БЫСТРЫЙ СТАРТ](/getting-started/quick-start.md) и соберите первый квест за пять минут. Дальше документация устроена так, что её не нужно читать подряд: каждый раздел отвечает на свой тип вопроса. Ищите свою колонку ниже.
+Если ты здесь впервые — открой [Быстрый старт](/getting-started/quick-start.md) и собери первый квест за пять минут. Дальше документация устроена так, что её не нужно читать подряд: каждый раздел отвечает на свой тип вопроса. Ищи свою колонку ниже.
 
 ---
 
@@ -16,41 +16,42 @@ InkQuest не ограничен типами задач вроде "убей X 
 
 ### Начало
 
-- [БЫСТРЫЙ СТАРТ](/getting-started/quick-start.md) — первый квест командами и через датапак.
+- [Быстрый старт](/getting-started/quick-start.md) — первый квест командами и через датапак.
 
 ### Как устроены квесты
 
 *Понять модель — что вообще такое квест и по каким правилам он живёт.*
 
-- [СТРУКТУРА КВЕСТА](/how-quests-work/quest-structure.md) — этапы, задачи, исходы.
-- [АКТИВНЫЙ ЭТАП](/how-quests-work/active-stage.md) — какой этап «сейчас» и как он сдвигается.
-- [СТАТУСЫ КВЕСТОВ И ЗАДАЧ](/how-quests-work/quest-and-task-statuses.md) — active, complete, success/failure/skipped.
-- [ЗАВИСИМОСТИ МЕЖДУ КВЕСТАМИ](/how-quests-work/quest-dependencies.md) — как один квест открывает другой (`after`, `require`).
-- [ПОВТОРЯЕМЫЕ КВЕСТЫ](/how-quests-work/repeatable-quests.md) — квест, который можно пройти заново.
+- [Структура квеста](/how-quests-work/quest-structure.md) — этапы, задачи, исходы.
+- [Активный этап](/how-quests-work/active-stage.md) — какой этап «сейчас» и как он сдвигается.
+- [Статусы квестов и задач](/how-quests-work/quest-and-task-statuses.md) — active, complete, success/failure/skipped.
+- [Зависимости между квестами](/how-quests-work/quest-dependencies.md) — как один квест открывает другой (`after`, `require`).
+- [Повторяемые квесты](/how-quests-work/repeatable-quests.md) — квест, который можно пройти заново.
+- [Закрепление](/how-quests-work/pinning.md) — как квест попадает в HUD и кто этим управляет.
 
 ### Справочник датапака
 
 *Точные поля JSON — чтобы посмотреть «как именно записать».*
 
-- [ФОРМАТ ФАЙЛА КВЕСТА](/datapack-reference/quest-file-format.md) — полный список полей квеста и задачи, версии формата, текст и стили.
-- [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md) — автозавершение: `score`, `predicate`, `all`/`any`/`none`, `tasks`, кнопки.
-- [ХУКИ ЖИЗНЕННОГО ЦИКЛА ЗАДАЧИ](/datapack-reference/task-lifecycle-hooks.md) — запуск функций и выдача тегов на события задачи.
+- [Формат файла квеста](/datapack-reference/quest-file-format.md) — полный список полей квеста и задачи, версии формата, текст и стили.
+- [Условия выполнения задачи](/datapack-reference/task-completion-conditions.md) — автозавершение: `score`, `predicate`, `all`/`any`/`none`, `tasks`, кнопки.
+- [Хуки жизненного цикла задачи](/datapack-reference/task-lifecycle-hooks.md) — запуск функций и выдача тегов на события задачи.
+- [Предметы в датапаке](/datapack-reference/quest-items.md) — рецепт книги, привязка свитка к квесту, геймрул `doQuestBookItemCheck`.
 
 ### Что видит игрок
 
-- [ИНТЕРФЕЙС ИГРОКА](/player-view/player-interface.md) — HUD, книга квестов, уведомления.
-- [ЗАКРЕПЛЕНИЕ](/player-view/pinning.md) — как квест попадает в HUD и кто этим управляет.
-- [ПРЕДМЕТЫ](/player-view/items.md) — книга и свиток квеста, gamerule открытия.
+- [Интерфейс игрока](/player-view/player-interface.md) — HUD, книга квестов, уведомления.
+- [Предметы](/player-view/items.md) — книга и свиток квеста, gamerule открытия.
 
 ### Командное API
 
-- [СПРАВОЧНИК КОМАНД](/command-api/command-reference.md) — все команды `/quest` и `/execute if quest`.
-- [ИНТЕГРАЦИЯ С КОМАНДАМИ](/command-api/integration-with-commands.md) — квест как читаемое состояние; связка с командными блоками и scoreboard.
+- [Справочник команд](/command-api/command-reference.md) — все команды `/quest` и `/execute if quest`.
+- [Интеграция с командами](/command-api/integration-with-commands.md) — квест как читаемое состояние; связка с командными блоками и scoreboard.
 
-### Готовые рецепты
+### Паттерны квестов
 
-- [ПАТТЕРНЫ КВЕСТОВ](/quest-patterns/quest-patterns.md) — заметка в дневнике, цепочка, развилка, ивент с общим прогрессом и др.
+- [Паттерны квестов](/quest-patterns/quest-patterns.md) — заметка в дневнике, цепочка, развилка, ивент с общим прогрессом и др.
 
 ### Решение проблем
 
-- [ЧАСТЫЕ ВОПРОСЫ И ОШИБКИ](/troubleshooting/common-questions-and-errors.md) — что делать, если квест не загрузился или условие не сработало.
+- [Частые вопросы и ошибки](/troubleshooting/common-questions-and-errors.md) — что делать, если квест не загрузился или условие не сработало.

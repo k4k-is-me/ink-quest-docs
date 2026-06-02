@@ -97,7 +97,7 @@
 | `force` | Закрепить всегда. |
 | `off` | Не закреплять. |
 
-См. [ЗАКРЕПЛЕНИЕ](/player-view/pinning.md).
+См. [ЗАКРЕПЛЕНИЕ](/how-quests-work/pinning.md).
 
 ### `quest modify ... tasks add`
 
@@ -390,7 +390,7 @@ execute if task @s example:escape push_the_lever succeeded run setblock ~ ~ ~ ai
 
 - [ИНТЕГРАЦИЯ С КОМАНДАМИ](/command-api/integration-with-commands.md) — модель «квест как состояние» и разобранные связки `test` / `query` / `execute if`.
 - [СТАТУСЫ КВЕСТОВ И ЗАДАЧ](/how-quests-work/quest-and-task-statuses.md) — что значат `active`, `complete`, `succeeded`, `failed`, `skipped`, `pinned`.
-- [ЗАКРЕПЛЕНИЕ](/player-view/pinning.md) — как `pin` выглядит на стороне игрока.
+- [ЗАКРЕПЛЕНИЕ](/how-quests-work/pinning.md) — как `pin` выглядит на стороне игрока.
 - [ФОРМАТ ФАЙЛА КВЕСТА](/datapack-reference/quest-file-format.md) — те же поля (`title`, `icon`, `repeatable`, `pin_mode`) в JSON датапака.
 - [ПРЕДМЕТЫ](/player-view/items.md) — свиток и книга квеста.
 - [ПАТТЕРНЫ КВЕСТОВ](/quest-patterns/quest-patterns.md) — готовые сборки на этих командах.

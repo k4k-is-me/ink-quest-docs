@@ -33,7 +33,7 @@ The quest opens when **all quests in at least one group** have been completed su
 
 ## "Unlocked" means "granted"
 
-A quest opened by a dependency isn't merely flagged as available — the system **grants it to the player right away**, as if by `quest give`. So it appears in the book and, if so configured, is pinned to the HUD; whether to pin it on the automatic grant is decided by the `pin_mode` field (see [Pinning](/player-view/pinning.md)).
+A quest opened by a dependency isn't merely flagged as available — the system **grants it to the player right away**, as if by `quest give`. So it appears in the book and, if so configured, is pinned to the HUD; whether to pin it on the automatic grant is decided by the `pin_mode` field (see [Pinning](/how-quests-work/pinning.md)).
 
 The check is **reactive**: it fires the moment one of the quest's dependencies finishes. The system doesn't poll the conditions continuously — it re-evaluates the dependent quest only when one of its dependency quests has reached success.
 
@@ -89,5 +89,5 @@ Only players with the `chose_dark_path` tag will get the quest — and only if t
 
 - [Quest file format](/datapack-reference/quest-file-format.md#quest-fields) — the types and obligation of the `after` and `require` fields.
 - [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md#the-three-outcomes) — what "completed successfully" means and why a failure or skip doesn't count.
-- [Pinning](/player-view/pinning.md) — the `pin_mode` field and auto-pinning on a grant by dependency.
+- [Pinning](/how-quests-work/pinning.md) — the `pin_mode` field and auto-pinning on a grant by dependency.
 - [Command reference](/command-api/command-reference.md#quest-give) — granting a quest by hand, bypassing dependencies.

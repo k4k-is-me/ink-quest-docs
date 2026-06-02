@@ -48,6 +48,12 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/k4k-is-me/ink-quest-docs/issues
+      name: Report an issue
+
 plugins:
   - search:
       lang: [en, ru]
@@ -104,13 +110,14 @@ nav:
       - how-quests-work/quest-and-task-statuses.md
       - how-quests-work/quest-dependencies.md
       - how-quests-work/repeatable-quests.md
+      - how-quests-work/pinning.md
   - Datapack reference:
       - datapack-reference/quest-file-format.md
       - datapack-reference/task-completion-conditions.md
       - datapack-reference/task-lifecycle-hooks.md
+      - datapack-reference/quest-items.md
   - Player view:
       - player-view/player-interface.md
-      - player-view/pinning.md
       - player-view/items.md
   - Command API:
       - command-api/command-reference.md

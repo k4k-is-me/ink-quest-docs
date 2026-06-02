@@ -97,7 +97,7 @@ The auto-pin mode used when a quest is **auto-granted** as a dependent of a just
 | `force` | Always pin. |
 | `off` | Never pin. |
 
-See [Pinning](/player-view/pinning.md).
+See [Pinning](/how-quests-work/pinning.md).
 
 ### `quest modify ... tasks add`
 
@@ -390,7 +390,7 @@ Gives players a [quest scroll](/player-view/items.md) — an item that grants qu
 
 - [Integration with commands](/command-api/integration-with-commands.md) — the "quest as state" model and worked-out `test` / `query` / `execute if` combinations.
 - [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md) — what `active`, `complete`, `succeeded`, `failed`, `skipped`, `pinned` mean.
-- [Pinning](/player-view/pinning.md) — how `pin` looks on the player's side.
+- [Pinning](/how-quests-work/pinning.md) — how `pin` looks on the player's side.
 - [Quest file format](/datapack-reference/quest-file-format.md) — the same fields (`title`, `icon`, `repeatable`, `pin_mode`) in datapack JSON.
 - [Items](/player-view/items.md) — the quest scroll and quest book.
 - [Quest patterns](/quest-patterns/quest-patterns.md) — ready-made builds on these commands.

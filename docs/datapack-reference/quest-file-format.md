@@ -48,10 +48,10 @@ Set at the top level of the file.
 | `variant`     | `int`                      |   yes    | —                            | Format variant (see above). Currently `1`.                                                                                                           |
 | `title`       | Text                       |   yes    | —                            | The quest's title. See [Text fields and styling](#text-fields-and-styling).                                                                          |
 | `description` | Text                       |    no    | —                            | The quest's description.                                                                                                                             |
-| `icon`        | Identifier                 |    no    | `travelcorequesting:default` | The quest's icon in the HUD and the book. Atlas `textures/icons/<path>.png`.                                                                         |
+| `icon`        | Identifier                 |    no    | `inkquest:default` | The quest's icon in the HUD and the book. Atlas `textures/icons/<path>.png`.                                                                         |
 | `index`       | `int`                      |    no    | `0`                          | Sort order in the book: lower comes higher.                                                                                                          |
 | `repeatable`  | `bool`                     |    no    | `false`                      | Whether the quest can be granted again after completion. See [Repeatable quests](/how-quests-work/repeatable-quests.md).                             |
-| `pin_mode`    | `auto` \| `off` \| `force` |    no    | `auto`                       | Auto-pin mode when the quest is auto-granted as a dependent. See [Pinning](/player-view/pinning.md).                                                 |
+| `pin_mode`    | `auto` \| `off` \| `force` |    no    | `auto`                       | Auto-pin mode when the quest is auto-granted as a dependent. See [Pinning](/how-quests-work/pinning.md).                                                 |
 | `after`       | list of Identifier groups  |    no    | —                            | Dependencies on other quests. See [Dependencies between quests](/how-quests-work/quest-dependencies.md).                                             |
 | `require`     | object                     |    no    | —                            | Extra unlock conditions (`tags`, `predicate`). Ignored without `after`. See [Dependencies between quests](/how-quests-work/quest-dependencies.md).   |
 | `tasks`       | object `taskId → task`     |    no    | —                            | The quest's task dictionary. See [Task fields](#task-fields).                                                                                        |
@@ -68,7 +68,7 @@ Set at the top level of the file.
 	"variant": 1,
 	"title": "The missing caravan",
 	"description": "The traders are overdue. Someone has to find out what happened.",
-	"icon": "travelcorequesting:note",
+	"icon": "inkquest:note",
 	"index": 10,
 	"after": [["story:prologue"]],
 	"require": { "tags": ["joined_guild"] },

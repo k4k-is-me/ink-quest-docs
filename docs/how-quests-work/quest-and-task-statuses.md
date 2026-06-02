@@ -37,7 +37,7 @@ The outcome is computed from the required tasks of the stages — optional tasks
 
 ## Pinning is a separate dimension
 
-`pinned` isn't a phase of the lifecycle but a visibility mark on top of it: a pinned quest is shown in the on-screen HUD. Only an **active** quest can be pinned; completing it removes it from the HUD. Pinning doesn't affect how conditions are evaluated — only what the player sees in front of them. Details — see [Pinning](/player-view/pinning.md).
+`pinned` isn't a phase of the lifecycle but a visibility mark on top of it: a pinned quest is shown in the on-screen HUD. Only an **active** quest can be pinned; completing it removes it from the HUD. Pinning doesn't affect how conditions are evaluated — only what the player sees in front of them. Details — see [Pinning](/how-quests-work/pinning.md).
 
 ---
 
@@ -81,6 +81,6 @@ Six statuses are available to check:
 
 - [Quest structure](/how-quests-work/quest-structure.md) — how a quest's outcome is built from stages and tasks.
 - [Active stage](/how-quests-work/active-stage.md) — why editing a quest affects those playing it but not those who finished.
-- [Pinning](/player-view/pinning.md) — what `pinned` does on the player's side.
+- [Pinning](/how-quests-work/pinning.md) — what `pinned` does on the player's side.
 - [Command reference](/command-api/command-reference.md#reading-state) — exact syntax of `quest test`, `execute if quest`, `quest list trackedby`.
 - [Integration with commands](/command-api/integration-with-commands.md) — how to read a quest's state from command blocks and functions.

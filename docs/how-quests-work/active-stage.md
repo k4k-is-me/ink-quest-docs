@@ -9,7 +9,7 @@
 The system deals only with the active stage. Tasks of future and already-finished stages are "asleep" — nothing is counted for them. The active stage decides two things:
 
 - **Conditions are checked automatically** — constantly, for all of the player's active quests, not just the pinned one. For details — see [Task completion conditions](/datapack-reference/task-completion-conditions.md).
-- **The whole active stage is shown in the HUD — for a pinned quest.** All tasks of the active stage appear on screen: both the required one and the optional ones. But a quest reaches the HUD only through [pinning](/player-view/pinning.md), not because it's active — an unpinned quest isn't visible on screen, though its conditions are still checked.
+- **The whole active stage is shown in the HUD — for a pinned quest.** All tasks of the active stage appear on screen: both the required one and the optional ones. But a quest reaches the HUD only through [pinning](/how-quests-work/pinning.md), not because it's active — an unpinned quest isn't visible on screen, though its conditions are still checked.
 
 ---
 
@@ -24,5 +24,5 @@ This doesn't touch completed quests. A completed quest is **frozen**: its status
 ## See also
 
 - [Quest structure](/how-quests-work/quest-structure.md) — stages, required and optional tasks, quest outcomes.
-- [Pinning](/player-view/pinning.md) — how the active stage's tasks reach the HUD and who controls it.
+- [Pinning](/how-quests-work/pinning.md) — how the active stage's tasks reach the HUD and who controls it.
 - [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md) — `active` / `complete` and the freezing of a completed quest.

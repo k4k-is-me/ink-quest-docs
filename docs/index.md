@@ -8,7 +8,7 @@ Unlike most quest systems, InkQuest is not limited to task types like "kill X mo
 
 ## Where to start
 
-First time here? Open [QUICK START](/getting-started/quick-start.md) and build your first quest in five minutes. Beyond that, the docs are not meant to be read front to back: each section answers its own kind of question. Find your column below.
+First time here? Open [Quick start](/getting-started/quick-start.md) and build your first quest in five minutes. Beyond that, the docs are not meant to be read front to back: each section answers its own kind of question. Find your column below.
 
 ---
 
@@ -16,41 +16,42 @@ First time here? Open [QUICK START](/getting-started/quick-start.md) and build y
 
 ### Getting started
 
-- [QUICK START](/getting-started/quick-start.md) — your first quest, via commands and via datapack.
+- [Quick start](/getting-started/quick-start.md) — your first quest, via commands and via datapack.
 
 ### How quests work
 
 *Understand the model — what a quest actually is and the rules it lives by.*
 
-- [QUEST STRUCTURE](/how-quests-work/quest-structure.md) — stages, tasks, outcomes.
-- [ACTIVE STAGE](/how-quests-work/active-stage.md) — which stage is "now" and how it advances.
-- [QUEST AND TASK STATUSES](/how-quests-work/quest-and-task-statuses.md) — active, complete, success/failure/skipped.
-- [DEPENDENCIES BETWEEN QUESTS](/how-quests-work/quest-dependencies.md) — how one quest unlocks another (`after`, `require`).
-- [REPEATABLE QUESTS](/how-quests-work/repeatable-quests.md) — a quest you can run again.
+- [Quest structure](/how-quests-work/quest-structure.md) — stages, tasks, outcomes.
+- [Active stage](/how-quests-work/active-stage.md) — which stage is "now" and how it advances.
+- [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md) — active, complete, success/failure/skipped.
+- [Quest dependencies](/how-quests-work/quest-dependencies.md) — how one quest unlocks another (`after`, `require`).
+- [Repeatable quests](/how-quests-work/repeatable-quests.md) — a quest you can run again.
+- [Pinning](/how-quests-work/pinning.md) — how a quest reaches the HUD and who controls it.
 
 ### Datapack reference
 
 *Exact JSON fields — to look up "how to write it precisely".*
 
-- [QUEST FILE FORMAT](/datapack-reference/quest-file-format.md) — full list of quest and task fields, format versions, text and styles.
-- [TASK COMPLETION CONDITIONS](/datapack-reference/task-completion-conditions.md) — auto-completion: `score`, `predicate`, `all`/`any`/`none`, `tasks`, buttons.
-- [TASK LIFECYCLE HOOKS](/datapack-reference/task-lifecycle-hooks.md) — running functions and granting tags on task events.
+- [Quest file format](/datapack-reference/quest-file-format.md) — full list of quest and task fields, format versions, text and styles.
+- [Task completion conditions](/datapack-reference/task-completion-conditions.md) — auto-completion: `score`, `predicate`, `all`/`any`/`none`, `tasks`, buttons.
+- [Task lifecycle hooks](/datapack-reference/task-lifecycle-hooks.md) — running functions and granting tags on task events.
+- [Items in a datapack](/datapack-reference/quest-items.md) — book recipe, binding a scroll to a quest, the `doQuestBookItemCheck` gamerule.
 
 ### Player view
 
-- [PLAYER INTERFACE](/player-view/player-interface.md) — HUD, quest book, notifications.
-- [PINNING](/player-view/pinning.md) — how a quest reaches the HUD and who controls it.
-- [ITEMS](/player-view/items.md) — the quest book and quest scroll, opening gamerule.
+- [Player interface](/player-view/player-interface.md) — HUD, quest book, notifications.
+- [Items](/player-view/items.md) — the quest book and quest scroll, opening gamerule.
 
 ### Command API
 
-- [COMMAND REFERENCE](/command-api/command-reference.md) — every `/quest` and `/execute if quest` command.
-- [INTEGRATION WITH COMMANDS](/command-api/integration-with-commands.md) — a quest as readable state; wiring with command blocks and scoreboard.
+- [Command reference](/command-api/command-reference.md) — every `/quest` and `/execute if quest` command.
+- [Integration with commands](/command-api/integration-with-commands.md) — a quest as readable state; wiring with command blocks and scoreboard.
 
-### Ready-made recipes
+### Quest patterns
 
-- [QUEST PATTERNS](/quest-patterns/quest-patterns.md) — a journal note, a chain, a branch, a shared-progress event, and more.
+- [Quest patterns](/quest-patterns/quest-patterns.md) — a journal note, a chain, a branch, a shared-progress event, and more.
 
 ### Troubleshooting
 
-- [COMMON QUESTIONS AND ERRORS](/troubleshooting/common-questions-and-errors.md) — what to do if a quest fails to load or a condition doesn't fire.
+- [Common questions and errors](/troubleshooting/common-questions-and-errors.md) — what to do if a quest fails to load or a condition doesn't fire.

@@ -48,10 +48,10 @@
 | `variant`     | `int`                      |      да      | —                            | Вариант формата (см. выше). Сейчас `1`.                                                                                                               |
 | `title`       | Text                       |      да      | —                            | Заголовок квеста. См. [Текстовые поля и стилизация](#текстовые-поля-и-стилизация).                                                                    |
 | `description` | Text                       |     нет      | —                            | Описание квеста.                                                                                                                                      |
-| `icon`        | Identifier                 |     нет      | `travelcorequesting:default` | Иконка квеста в HUD и книге. Атлас `textures/icons/<path>.png`.                                                                                       |
+| `icon`        | Identifier                 |     нет      | `inkquest:default` | Иконка квеста в HUD и книге. Атлас `textures/icons/<path>.png`.                                                                                       |
 | `index`       | `int`                      |     нет      | `0`                          | Порядок сортировки в книге: меньше — выше.                                                                                                            |
 | `repeatable`  | `bool`                     |     нет      | `false`                      | Можно ли выдать квест повторно после завершения. См. [ПОВТОРЯЕМЫЕ КВЕСТЫ](/how-quests-work/repeatable-quests.md).                                     |
-| `pin_mode`    | `auto` \| `off` \| `force` |     нет      | `auto`                       | Режим автозакрепления при автовыдаче по зависимости. См. [ЗАКРЕПЛЕНИЕ](/player-view/pinning.md).                                                      |
+| `pin_mode`    | `auto` \| `off` \| `force` |     нет      | `auto`                       | Режим автозакрепления при автовыдаче по зависимости. См. [ЗАКРЕПЛЕНИЕ](/how-quests-work/pinning.md).                                                      |
 | `after`       | список групп Identifier    |     нет      | —                            | Зависимости от других квестов. См. [ЗАВИСИМОСТИ МЕЖДУ КВЕСТАМИ](/how-quests-work/quest-dependencies.md).                                              |
 | `require`     | объект                     |     нет      | —                            | Доп. условия разблокировки (`tags`, `predicate`). Игнорируется без `after`. См. [ЗАВИСИМОСТИ МЕЖДУ КВЕСТАМИ](/how-quests-work/quest-dependencies.md). |
 | `tasks`       | объект `taskId → задача`   |     нет      | —                            | Словарь задач квеста. См. [Поля задачи](#поля-задачи).                                                                                                |
@@ -68,7 +68,7 @@
 	"variant": 1,
 	"title": "Пропавший караван",
 	"description": "Торговцы не вернулись в срок. Кто-то должен выяснить, что случилось.",
-	"icon": "travelcorequesting:note",
+	"icon": "inkquest:note",
 	"index": 10,
 	"after": [["story:prologue"]],
 	"require": { "tags": ["joined_guild"] },
