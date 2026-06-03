@@ -23,7 +23,7 @@
 > **Два набора слов про статус — не путай.**
 >
 > - **Задать исход** задачи или этапа: `success` · `failure` · `skip` (команда [`quest complete`](#quest-complete--task)).
-> - **Проверить или отфильтровать** статус: `active` · `complete` · `succeeded` · `failed` · `skipped` · `pinned` (команды `test`, `query`, `list`, `execute if`). Что они значат — [Статусы квестов и задач](/how-quests-work/quest-and-task-statuses.md).
+> - **Проверить или отфильтровать** статус квеста: `active` · `complete` · `succeeded` · `failed` · `pinned`; статус задачи: те же плюс `skipped` (команды `test`, `query`, `list`, `execute if`). Что они значат — [Статусы квестов и задач](/how-quests-work/quest-and-task-statuses.md).
 
 > Каждая команда возвращает **число** — счётчик или `1`/`0`. Его можно положить в scoreboard через `execute store result score …` или ветвить через `execute if`. Что именно возвращается — указано у команды.
 
@@ -242,7 +242,7 @@
 ### `quest test`
 
 ```
-/quest test <player> <id> active|complete|succeeded|failed|skipped|pinned
+/quest test <player> <id> active|complete|succeeded|failed|pinned
 /quest test <player> <id> task <taskId> active|complete|succeeded|failed|skipped|pinned
 ```
 
@@ -296,7 +296,7 @@ execute store result score @s quest_stages run quest query @s example:escape sta
 ### `/execute if|unless quest` и `/execute if|unless task`
 
 ```
-/execute if|unless quest <player> <id> active|complete|succeeded|failed|skipped|pinned …
+/execute if|unless quest <player> <id> active|complete|succeeded|failed|pinned …
 /execute if|unless task <player> <id> <taskId> active|complete|succeeded|failed|skipped|pinned …
 ```
 
@@ -332,7 +332,7 @@ execute if task @s example:escape push_the_lever succeeded run setblock ~ ~ ~ ai
 ### `quest list trackedby`
 
 ```
-/quest list trackedby <player> [all|active|complete|succeeded|failed|skipped|pinned]
+/quest list trackedby <player> [all|active|complete|succeeded|failed|pinned]
 ```
 
 Квесты, которые отслеживает игрок, с фильтром по статусу (по умолчанию `all`).
@@ -389,7 +389,7 @@ execute if task @s example:escape push_the_lever succeeded run setblock ~ ~ ~ ai
 ## См. также
 
 - [Интеграция с командами](/command-api/integration-with-commands.md) — модель «квест как состояние» и разобранные связки `test` / `query` / `execute if`.
-- [Статусы квестов и задач](/how-quests-work/quest-and-task-statuses.md) — что значат `active`, `complete`, `succeeded`, `failed`, `skipped`, `pinned`.
+- [Статусы квестов и задач](/how-quests-work/quest-and-task-statuses.md) — что значат `active`, `complete`, `succeeded`, `failed`, `pinned`; почему квест не получает `skipped`.
 - [Закрепление](/how-quests-work/pinning.md) — как `pin` выглядит на стороне игрока.
 - [Формат файла квеста](/datapack-reference/quest-file-format.md) — те же поля (`title`, `icon`, `repeatable`, `pin_mode`) в JSON датапака.
 - [Предметы](/player-view/items.md) — свиток и книга квеста.

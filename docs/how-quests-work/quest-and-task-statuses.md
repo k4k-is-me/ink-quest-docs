@@ -15,21 +15,21 @@ tracked — quest granted to the player
 │   └── pinned — pinned to the HUD
 └── complete — has an outcome, progress frozen
     ├── success — succeeded
-    ├── failure — failed
-    └── skipped — skipped
+    └── failure — failed
 ```
 
 **A completed quest is frozen.** Its status and progress no longer change, and edits to the quest itself don't reach it — for someone who has already finished it, it stays exactly as it ended. Why editing a quest affects those playing it now but not those who finished it — see [Active stage](/how-quests-work/active-stage.md).
 
 ---
 
-## The three outcomes
+## Two outcomes
 
-A completed quest is always in one of three outcomes:
+A completed quest is always in one of two outcomes:
 
-- **success** — all required tasks were completed successfully or skipped, but not all skipped.
+- **success** — all required tasks are complete (succeeded or skipped).
 - **failure** — at least one required task failed. The quest finishes immediately, without waiting for the rest.
-- **skipped** — all required tasks were skipped.
+
+> Skipping all required tasks with `/quest complete ... skip` also yields `success`, not a separate status. Skip describes the outcome of an individual task, not the quest as a whole.
 
 The outcome is computed from the required tasks of the stages — optional tasks don't affect it. How a playthrough is built from stages and tasks — see [Quest structure](/how-quests-work/quest-structure.md).
 
@@ -51,7 +51,7 @@ A task has the same set of states as a quest. A task is **active** (`active`) wh
 
 A status is readable state: you can check it with a command (`quest test`, `/execute if quest`) and filter a player's quest list by it (`quest list trackedby`). What each command takes and returns — see [Command reference](/command-api/command-reference.md#reading-state); how to weave a status into command logic — see [Integration with commands](/command-api/integration-with-commands.md).
 
-Six statuses are available to check:
+Five statuses are available to check:
 
 | Status | Means |
 | --- | --- |
@@ -59,15 +59,14 @@ Six statuses are available to check:
 | `complete` | Finished with any outcome. |
 | `succeeded` | Finished with success (outcome `success`). |
 | `failed` | Finished with failure (outcome `failure`). |
-| `skipped` | Finished with a skip. |
 | `pinned` | Pinned to the HUD (only an active one can be). |
 
 > **Two sets of status words — don't mix them up.** You *set* an outcome with one set of words and *check* a status with another:
 >
 > - set an outcome (`quest complete`): `success` · `failure` · `skip`;
-> - check a status (`test`, `execute if`, `list`): `active` · `complete` · `succeeded` · `failed` · `skipped` · `pinned`.
+> - check a status (`test`, `execute if`, `list`): `active` · `complete` · `succeeded` · `failed` · `pinned`.
 >
-> The check words `succeeded` / `failed` are past tense, unlike the outcome words `success` / `failure`.
+> The check words `succeeded` / `failed` are past tense, unlike the outcome words `success` / `failure`. The word `skip` sets an individual task's outcome but creates no separate quest-level status.
 
 ---
 

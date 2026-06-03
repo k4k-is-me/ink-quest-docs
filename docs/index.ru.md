@@ -24,7 +24,7 @@ InkQuest не ограничен типами задач вроде "убей X 
 
 - [Структура квеста](/how-quests-work/quest-structure.md) — этапы, задачи, исходы.
 - [Активный этап](/how-quests-work/active-stage.md) — какой этап «сейчас» и как он сдвигается.
-- [Статусы квестов и задач](/how-quests-work/quest-and-task-statuses.md) — active, complete, success/failure/skipped.
+- [Статусы квестов и задач](/how-quests-work/quest-and-task-statuses.md) — active, complete, success/failure.
 - [Зависимости между квестами](/how-quests-work/quest-dependencies.md) — как один квест открывает другой (`after`, `require`).
 - [Повторяемые квесты](/how-quests-work/repeatable-quests.md) — квест, который можно пройти заново.
 - [Закрепление](/how-quests-work/pinning.md) — как квест попадает в HUD и кто этим управляет.

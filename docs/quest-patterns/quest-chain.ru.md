@@ -96,7 +96,7 @@ quest give @s story:ch1_arrival
 2. Выполни его (`/quest complete @s story:ch1_arrival task talk_to_captain success`) — второй квест **появился в книге сам**? ✅
 3. Если второй не появился — проверь, что:
    - Имя в `after` совпадает с ID файла (`story:ch1_arrival`, а не `story/ch1_arrival`).
-   - Первый квест завершился со статусом `success` (не `failure`, не `skipped` — см. ниже про статусы).
+   - Первый квест завершился со статусом `success` (не `failure` — см. ниже про статусы).
 
 ---
 

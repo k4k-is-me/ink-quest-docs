@@ -23,7 +23,7 @@ In the syntax notation: `<required>` is a required argument, `[optional]` is opt
 > **Two sets of status words — don't mix them up.**
 >
 > - **Set an outcome** for a task or stage: `success` · `failure` · `skip` (the [`quest complete`](#quest-complete--task) command).
-> - **Check or filter** by status: `active` · `complete` · `succeeded` · `failed` · `skipped` · `pinned` (the `test`, `query`, `list`, `execute if` commands). What they mean — [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md).
+> - **Check or filter** by quest status: `active` · `complete` · `succeeded` · `failed` · `pinned`; by task status: the same plus `skipped` (the `test`, `query`, `list`, `execute if` commands). What they mean — [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md).
 
 > Every command returns a **number** — a counter or `1`/`0`. You can store it on the scoreboard with `execute store result score …` or branch on it with `execute if`. What exactly is returned is noted under each command.
 
@@ -242,7 +242,7 @@ Three commands read the same state in different forms: `test` — yes/no as a nu
 ### `quest test`
 
 ```
-/quest test <player> <id> active|complete|succeeded|failed|skipped|pinned
+/quest test <player> <id> active|complete|succeeded|failed|pinned
 /quest test <player> <id> task <taskId> active|complete|succeeded|failed|skipped|pinned
 ```
 
@@ -296,7 +296,7 @@ execute store result score @s quest_stages run quest query @s example:escape sta
 ### `/execute if|unless quest` and `/execute if|unless task`
 
 ```
-/execute if|unless quest <player> <id> active|complete|succeeded|failed|skipped|pinned …
+/execute if|unless quest <player> <id> active|complete|succeeded|failed|pinned …
 /execute if|unless task <player> <id> <taskId> active|complete|succeeded|failed|skipped|pinned …
 ```
 
@@ -332,7 +332,7 @@ Lists the registered quests.
 ### `quest list trackedby`
 
 ```
-/quest list trackedby <player> [all|active|complete|succeeded|failed|skipped|pinned]
+/quest list trackedby <player> [all|active|complete|succeeded|failed|pinned]
 ```
 
 The quests the player is tracking, filtered by status (`all` by default).
@@ -389,7 +389,7 @@ Gives players a [quest scroll](/player-view/items.md) — an item that grants qu
 ## See also
 
 - [Integration with commands](/command-api/integration-with-commands.md) — the "quest as state" model and worked-out `test` / `query` / `execute if` combinations.
-- [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md) — what `active`, `complete`, `succeeded`, `failed`, `skipped`, `pinned` mean.
+- [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md) — what `active`, `complete`, `succeeded`, `failed`, `pinned` mean; why a quest never receives `skipped`.
 - [Pinning](/how-quests-work/pinning.md) — how `pin` looks on the player's side.
 - [Quest file format](/datapack-reference/quest-file-format.md) — the same fields (`title`, `icon`, `repeatable`, `pin_mode`) in datapack JSON.
 - [Items](/player-view/items.md) — the quest scroll and quest book.

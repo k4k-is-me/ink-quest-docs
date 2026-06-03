@@ -1,6 +1,6 @@
 # InkQuest — Narrative Quest Engine
 
-InkQuest is a quest system for Minecraft 1.20.1 (Fabric) built around narrative gameplay. Here a quest is a story event that unfolds: it moves through stages and can end in success, failure, or be skipped. Everything is configured through JSON datapacks and commands — no GUI editor.
+InkQuest is a quest system for Minecraft 1.20.1 (Fabric) built around narrative gameplay. Here a quest is a story event that unfolds: it moves through stages and can end in success or failure. Everything is configured through JSON datapacks and commands — no GUI editor.
 
 Unlike most quest systems, InkQuest is not limited to task types like "kill X mobs". Any mechanic is expressed through scoreboard conditions, Minecraft predicates, and datapack functions. Quests are versioned alongside your project, shipped inside a datapack, and integrate deeply with command blocks.
 
@@ -24,7 +24,7 @@ First time here? Open [Quick start](/getting-started/quick-start.md) and build y
 
 - [Quest structure](/how-quests-work/quest-structure.md) — stages, tasks, outcomes.
 - [Active stage](/how-quests-work/active-stage.md) — which stage is "now" and how it advances.
-- [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md) — active, complete, success/failure/skipped.
+- [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md) — active, complete, success/failure.
 - [Quest dependencies](/how-quests-work/quest-dependencies.md) — how one quest unlocks another (`after`, `require`).
 - [Repeatable quests](/how-quests-work/repeatable-quests.md) — a quest you can run again.
 - [Pinning](/how-quests-work/pinning.md) — how a quest reaches the HUD and who controls it.

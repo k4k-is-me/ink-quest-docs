@@ -96,7 +96,7 @@
 /quest complete @s story:fathers_letter task read skip
 ```
 
-Квест уйдёт в «завершённые» со статусом `skipped`. Если хочется засчитать это как достижение — используй `success` вместо `skip`: смысл в книге будет тот же, но статус читается иначе через [/quest test](/command-api/command-reference.md).
+Квест уйдёт в «завершённые» со статусом `success` — задача помечается как пропущенная (`skipped`), но сам квест всегда завершается успехом (или провалом), не пропуском. Через [`/quest test`](/command-api/command-reference.md) можно отдельно проверить статус задачи (`skipped`) или квеста (`succeeded`).
 
 ---
 

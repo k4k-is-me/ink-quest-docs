@@ -1,6 +1,6 @@
 # Quick start
 
-Let's build our first quest — "Escape": a required task "Find and pull the lever" and an optional one "Find out what became of the survivors". A quest here isn't just a checkbox in a list: it moves through stages and can end in success, failure, or be skipped.
+Let's build our first quest — "Escape": a required task "Find and pull the lever" and an optional one "Find out what became of the survivors". A quest here isn't just a checkbox in a list: it moves through stages and can end in success or failure.
 
 There are two ways to do it — both produce the same quest:
 

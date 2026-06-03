@@ -27,7 +27,7 @@ The quest opens when **all quests in at least one group** have been completed su
 
 (`a`, `b`, `c` here are the identifiers of the dependency quests.)
 
-**Only success counts.** A dependency opens a group only if it finished with the `success` outcome. A quest that finished with a failure (`failure`) or a skip (`skipped`) does not open the group. What these outcomes are — see [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md#the-three-outcomes).
+**Only success counts.** A dependency opens a group only if it finished with the `success` outcome. A quest that finished with a failure (`failure`) does not open the group. What these outcomes are — see [Quest and task statuses](/how-quests-work/quest-and-task-statuses.md#two-outcomes).
 
 ---
 
