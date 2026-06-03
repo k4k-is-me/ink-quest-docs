@@ -2,7 +2,7 @@
 
 Статический квест — это один JSON-файл в датапаке по пути `data/<namespace>/quests/<id>.json`, где `<id>` становится путём идентификатора квеста (`<namespace>:<id>`). Эта страница — точный справочник: какие поля бывают, какого они типа, что обязательно, а что нет.
 
-> Если ты только начинаешь — сначала прочти [БЫСТРЫЙ СТАРТ](/getting-started/quick-start.md) и [СТРУКТУРА КВЕСТА](/how-quests-work/quest-structure.md). Здесь же — словарь полей, к которому удобно возвращаться.
+> Если ты только начинаешь — сначала прочти [Быстрый старт](/getting-started/quick-start.md) и [Структура квеста](/how-quests-work/quest-structure.md). Здесь же — словарь полей, к которому удобно возвращаться.
 
 Минимальный валидный квест — это две служебные строки версии и заголовок:
 
@@ -50,12 +50,12 @@
 | `description` | Text                       |     нет      | —                            | Описание квеста.                                                                                                                                      |
 | `icon`        | Identifier                 |     нет      | `inkquest:default` | Иконка квеста в HUD и книге. Атлас `textures/icons/<path>.png`.                                                                                       |
 | `index`       | `int`                      |     нет      | `0`                          | Порядок сортировки в книге: меньше — выше.                                                                                                            |
-| `repeatable`  | `bool`                     |     нет      | `false`                      | Можно ли выдать квест повторно после завершения. См. [ПОВТОРЯЕМЫЕ КВЕСТЫ](/how-quests-work/repeatable-quests.md).                                     |
-| `pin_mode`    | `auto` \| `off` \| `force` |     нет      | `auto`                       | Режим автозакрепления при автовыдаче по зависимости. См. [ЗАКРЕПЛЕНИЕ](/how-quests-work/pinning.md).                                                      |
-| `after`       | список групп Identifier    |     нет      | —                            | Зависимости от других квестов. См. [ЗАВИСИМОСТИ МЕЖДУ КВЕСТАМИ](/how-quests-work/quest-dependencies.md).                                              |
-| `require`     | объект                     |     нет      | —                            | Доп. условия разблокировки (`tags`, `predicate`). Игнорируется без `after`. См. [ЗАВИСИМОСТИ МЕЖДУ КВЕСТАМИ](/how-quests-work/quest-dependencies.md). |
+| `repeatable`  | `bool`                     |     нет      | `false`                      | Можно ли выдать квест повторно после завершения. См. [Повторяемые квесты](/how-quests-work/repeatable-quests.md).                                     |
+| `pin_mode`    | `auto` \| `off` \| `force` |     нет      | `auto`                       | Режим автозакрепления при автовыдаче по зависимости. См. [Закрепление](/how-quests-work/pinning.md).                                                      |
+| `after`       | список групп Identifier    |     нет      | —                            | Зависимости от других квестов. См. [Зависимости между квестами](/how-quests-work/quest-dependencies.md).                                              |
+| `require`     | объект                     |     нет      | —                            | Доп. условия разблокировки (`tags`, `predicate`). Игнорируется без `after`. См. [Зависимости между квестами](/how-quests-work/quest-dependencies.md). |
 | `tasks`       | объект `taskId → задача`   |     нет      | —                            | Словарь задач квеста. См. [Поля задачи](#поля-задачи).                                                                                                |
-| `stages`      | список списков `taskId`    |     нет      | —                            | Этапы: каждый этап — список ID задач, первая — обязательная. См. [АКТИВНЫЙ ЭТАП](/how-quests-work/active-stage.md).                                   |
+| `stages`      | список списков `taskId`    |     нет      | —                            | Этапы: каждый этап — список ID задач, первая — обязательная. См. [Активный этап](/how-quests-work/active-stage.md).                                   |
 | `$schema`     | string                     |     нет      | —                            | Путь к JSON-схеме для редактора. Модом игнорируется.                                                                                                  |
 
 > `tasks` задаёт, какие задачи **существуют**, а `stages` — как они **расставлены по этапам**. Задача, объявленная в `tasks`, но не попавшая ни в один этап `stages`, в квесте не участвует (её можно посмотреть командой `/quest list tasks <id> unused`).
@@ -97,9 +97,9 @@
 |---|---|:---:|---|---|
 | `title` | Text | да | — | Заголовок задачи. |
 | `description` | Text | нет | — | Описание задачи. |
-| `condition` | объект | нет | — | Условия автозавершения: `success` и/или `failure`. См. [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md). |
-| `on` | объект | нет | — | Хуки жизненного цикла: `load`, `tick`, `pinned_tick`, `unload`, `success`, `failure`. См. [ХУКИ ЖИЗНЕННОГО ЦИКЛА ЗАДАЧИ](/datapack-reference/task-lifecycle-hooks.md). |
-| `buttons` | список из `success` \| `failure` \| `skip` | нет | — | Кнопки ручного завершения в книге. См. [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md#кнопки-ручного-завершения-buttons). |
+| `condition` | объект | нет | — | Условия автозавершения: `success` и/или `failure`. См. [Условия выполнения задачи](/datapack-reference/task-completion-conditions.md). |
+| `on` | объект | нет | — | Хуки жизненного цикла: `load`, `tick`, `pinned_tick`, `unload`, `success`, `failure`. См. [Хуки жизненного цикла задачи](/datapack-reference/task-lifecycle-hooks.md). |
+| `buttons` | список из `success` \| `failure` \| `skip` | нет | — | Кнопки ручного завершения в книге. См. [Условия выполнения задачи](/datapack-reference/task-completion-conditions.md#кнопки-ручного-завершения-buttons). |
 
 ```json
 "find_tracks": {
@@ -144,7 +144,7 @@
 
 Эти компоненты подставляют значение только в чате и командах; в книге и HUD оно остаётся пустым — это ограничение реализации.
 
-> Чтобы показать игроку **числовой прогресс**, не используй `score`-компонент в тексте — задай условие `score`. Оно рисует прогресс-бар напрямую и этих ограничений не имеет. См. [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md#условие-достижения-счёта-score).
+> Чтобы показать игроку **числовой прогресс**, не используй `score`-компонент в тексте — задай условие `score`. Оно рисует прогресс-бар напрямую и этих ограничений не имеет. См. [Условия выполнения задачи](/datapack-reference/task-completion-conditions.md#условие-достижения-счёта-score).
 
 ---
 
@@ -152,13 +152,13 @@
 
 Мод не падает на опечатках, но и не угадывает их. Любой ключ, которого нет в списках выше, **игнорируется**, а в лог сервера попадает предупреждение вида `Unknown key "<ключ>" in <quest|task|…> — it will be ignored` — часть `in …` показывает, на каком уровне лежит лишний ключ. Также мод предупреждает, если задан `require` без `after`.
 
-Если ожидаемое поле «не сработало» — в первую очередь проверь лог на такие предупреждения: чаще всего это опечатка в имени поля или вложенность на уровень выше/ниже нужного. Подробнее — в [ЧАСТЫЕ ВОПРОСЫ И ОШИБКИ](/troubleshooting/common-questions-and-errors.md).
+Если ожидаемое поле «не сработало» — в первую очередь проверь лог на такие предупреждения: чаще всего это опечатка в имени поля или вложенность на уровень выше/ниже нужного. Подробнее — в [Частые вопросы и ошибки](/troubleshooting/common-questions-and-errors.md).
 
 ---
 
 ## См. также
 
-- [БЫСТРЫЙ СТАРТ](/getting-started/quick-start.md) — первый квест за пять минут.
-- [СТРУКТУРА КВЕСТА](/how-quests-work/quest-structure.md) — как этапы и задачи складываются в квест.
-- [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md) и [ХУКИ ЖИЗНЕННОГО ЦИКЛА ЗАДАЧИ](/datapack-reference/task-lifecycle-hooks.md) — содержимое полей `condition` и `on`.
-- [ЧАСТЫЕ ВОПРОСЫ И ОШИБКИ](/troubleshooting/common-questions-and-errors.md) — что делать, если квест не загрузился.
+- [Быстрый старт](/getting-started/quick-start.md) — первый квест за пять минут.
+- [Структура квеста](/how-quests-work/quest-structure.md) — как этапы и задачи складываются в квест.
+- [Условия выполнения задачи](/datapack-reference/task-completion-conditions.md) и [Хуки жизненного цикла задачи](/datapack-reference/task-lifecycle-hooks.md) — содержимое полей `condition` и `on`.
+- [Частые вопросы и ошибки](/troubleshooting/common-questions-and-errors.md) — что делать, если квест не загрузился.

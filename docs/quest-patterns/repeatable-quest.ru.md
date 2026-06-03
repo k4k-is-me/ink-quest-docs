@@ -241,6 +241,6 @@ execute as @s unless score @s daily_courier_cooldown matches 1.. run quest give 
 
 ## См. также
 
-- [СПРАВОЧНИК КОМАНД](/command-api/command-reference.md) — команда `/quest give` и её аргументы
-- [ПРЕДМЕТЫ](/player-view/items.md) — Quest Scroll, отлично сочетается с repeatable
-- [ХУКИ ЖИЗНЕННОГО ЦИКЛА ЗАДАЧИ](/datapack-reference/task-lifecycle-hooks.md) — про `on.load` и `on.unload`
+- [Справочник команд](/command-api/command-reference.md) — команда `/quest give` и её аргументы
+- [Предметы](/player-view/items.md) — Quest Scroll, отлично сочетается с repeatable
+- [Хуки жизненного цикла задачи](/datapack-reference/task-lifecycle-hooks.md) — про `on.load` и `on.unload`

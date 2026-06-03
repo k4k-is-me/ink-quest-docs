@@ -1,6 +1,6 @@
 # Справочник команд
 
-Точный перечень всех команд InkQuest: что принимает, что возвращает, какими ошибками отвечает. Сюда заходят свериться — *как именно записать*. За моделью «квест как читаемое состояние» и разобранными связками — [ИНТЕГРАЦИЯ С КОМАНДАМИ](/command-api/integration-with-commands.md); за готовыми сборками — [ПАТТЕРНЫ КВЕСТОВ](/quest-patterns/quest-patterns.md).
+Точный перечень всех команд InkQuest: что принимает, что возвращает, какими ошибками отвечает. Сюда заходят свериться — *как именно записать*. За моделью «квест как читаемое состояние» и разобранными связками — [Интеграция с командами](/command-api/integration-with-commands.md); за готовыми сборками — [Паттерны квестов](/quest-patterns/quest-patterns.md).
 
 Все команды требуют уровень оператора **2+**.
 
@@ -23,7 +23,7 @@
 > **Два набора слов про статус — не путай.**
 >
 > - **Задать исход** задачи или этапа: `success` · `failure` · `skip` (команда [`quest complete`](#quest-complete--task)).
-> - **Проверить или отфильтровать** статус: `active` · `complete` · `succeeded` · `failed` · `skipped` · `pinned` (команды `test`, `query`, `list`, `execute if`). Что они значат — [СТАТУСЫ КВЕСТОВ И ЗАДАЧ](/how-quests-work/quest-and-task-statuses.md).
+> - **Проверить или отфильтровать** статус: `active` · `complete` · `succeeded` · `failed` · `skipped` · `pinned` (команды `test`, `query`, `list`, `execute if`). Что они значат — [Статусы квестов и задач](/how-quests-work/quest-and-task-statuses.md).
 
 > Каждая команда возвращает **число** — счётчик или `1`/`0`. Его можно положить в scoreboard через `execute store result score …` или ветвить через `execute if`. Что именно возвращается — указано у команды.
 
@@ -65,7 +65,7 @@
 /quest modify <id> icon <icon>
 ```
 
-Меняет иконку квеста. `icon` — Identifier **текстуры** иконки, а не предмет Minecraft. Допустимые значения и значение по умолчанию — в [ФОРМАТ ФАЙЛА КВЕСТА](/datapack-reference/quest-file-format.md#поля-квеста).
+Меняет иконку квеста. `icon` — Identifier **текстуры** иконки, а не предмет Minecraft. Допустимые значения и значение по умолчанию — в [Формат файла квеста](/datapack-reference/quest-file-format.md#поля-квеста).
 
 ### `quest modify ... index`
 
@@ -81,7 +81,7 @@
 /quest modify <id> repeatable true|false
 ```
 
-Включает повторное прохождение. При `true` завершённый квест можно выдать заново — прогресс прошлого прохождения сбрасывается. При `false` (по умолчанию) выдача уже завершённого квеста блокируется. Активный (незавершённый) квест нельзя перевыдать ни при каком значении. См. [ПОВТОРЯЕМЫЕ КВЕСТЫ](/how-quests-work/repeatable-quests.md).
+Включает повторное прохождение. При `true` завершённый квест можно выдать заново — прогресс прошлого прохождения сбрасывается. При `false` (по умолчанию) выдача уже завершённого квеста блокируется. Активный (незавершённый) квест нельзя перевыдать ни при каком значении. См. [Повторяемые квесты](/how-quests-work/repeatable-quests.md).
 
 ### `quest modify ... pin_mode`
 
@@ -97,7 +97,7 @@
 | `force` | Закрепить всегда. |
 | `off` | Не закреплять. |
 
-См. [ЗАКРЕПЛЕНИЕ](/how-quests-work/pinning.md).
+См. [Закрепление](/how-quests-work/pinning.md).
 
 ### `quest modify ... tasks add`
 
@@ -201,7 +201,7 @@
 
 **Ошибки:** квест не существует · игрок не отслеживает · квест уже завершён.
 
-> **Завершение квеста — на следующем тике.** Любая форма `quest complete` помечает задачи завершёнными сразу, но сам квест переходит в `complete` (и разблокирует зависимые по `after` квесты) только на следующем серверном тике. Поэтому в одной функции «закрой задачу → тут же проверь квест» не сработает: идущая следом `execute if quest … complete` ещё застанет квест активным — разнеси проверку на следующий тик. Автозавершение по условию задачи этого лага не имеет: задача и квест завершаются в один тик. См. [СТРУКТУРА КВЕСТА](/how-quests-work/quest-structure.md#как-складывается-исход-квеста).
+> **Завершение квеста — на следующем тике.** Любая форма `quest complete` помечает задачи завершёнными сразу, но сам квест переходит в `complete` (и разблокирует зависимые по `after` квесты) только на следующем серверном тике. Поэтому в одной функции «закрой задачу → тут же проверь квест» не сработает: идущая следом `execute if quest … complete` ещё застанет квест активным — разнеси проверку на следующий тик. Автозавершение по условию задачи этого лага не имеет: задача и квест завершаются в один тик. См. [Структура квеста](/how-quests-work/quest-structure.md#как-складывается-исход-квеста).
 
 ---
 
@@ -237,7 +237,7 @@
 
 ## Чтение состояния
 
-Три команды читают одно состояние в разной форме: `test` — да/нет числом, `execute if` — ветка в цепочке, `query` — величина. Какую брать и как они сочетаются — [ИНТЕГРАЦИЯ С КОМАНДАМИ](/command-api/integration-with-commands.md).
+Три команды читают одно состояние в разной форме: `test` — да/нет числом, `execute if` — ветка в цепочке, `query` — величина. Какую брать и как они сочетаются — [Интеграция с командами](/command-api/integration-with-commands.md).
 
 ### `quest test`
 
@@ -275,7 +275,7 @@
 /quest query <player> <id> task <taskId> success|failure value|target|percent
 ```
 
-`success` / `failure` — условие выполнения или провала; `value` — текущее значение, `target` — целевое, `percent` — процент 0–100. Применимо к условиям с прогресс-баром (`score`, `all`, `optionals` — см. [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md)).
+`success` / `failure` — условие выполнения или провала; `value` — текущее значение, `target` — целевое, `percent` — процент 0–100. Применимо к условиям с прогресс-баром (`score`, `all`, `optionals` — см. [Условия выполнения задачи](/datapack-reference/task-completion-conditions.md)).
 
 | Метрика | Что возвращает |
 | --- | --- |
@@ -307,7 +307,7 @@ execute if quest @s story:ch1 succeeded unless quest @s story:ch2 active run say
 execute if task @s example:escape push_the_lever succeeded run setblock ~ ~ ~ air
 ```
 
-Разбор модели и связок — [ИНТЕГРАЦИЯ С КОМАНДАМИ](/command-api/integration-with-commands.md).
+Разбор модели и связок — [Интеграция с командами](/command-api/integration-with-commands.md).
 
 ---
 
@@ -388,9 +388,9 @@ execute if task @s example:escape push_the_lever succeeded run setblock ~ ~ ~ ai
 
 ## См. также
 
-- [ИНТЕГРАЦИЯ С КОМАНДАМИ](/command-api/integration-with-commands.md) — модель «квест как состояние» и разобранные связки `test` / `query` / `execute if`.
-- [СТАТУСЫ КВЕСТОВ И ЗАДАЧ](/how-quests-work/quest-and-task-statuses.md) — что значат `active`, `complete`, `succeeded`, `failed`, `skipped`, `pinned`.
-- [ЗАКРЕПЛЕНИЕ](/how-quests-work/pinning.md) — как `pin` выглядит на стороне игрока.
-- [ФОРМАТ ФАЙЛА КВЕСТА](/datapack-reference/quest-file-format.md) — те же поля (`title`, `icon`, `repeatable`, `pin_mode`) в JSON датапака.
-- [ПРЕДМЕТЫ](/player-view/items.md) — свиток и книга квеста.
-- [ПАТТЕРНЫ КВЕСТОВ](/quest-patterns/quest-patterns.md) — готовые сборки на этих командах.
+- [Интеграция с командами](/command-api/integration-with-commands.md) — модель «квест как состояние» и разобранные связки `test` / `query` / `execute if`.
+- [Статусы квестов и задач](/how-quests-work/quest-and-task-statuses.md) — что значат `active`, `complete`, `succeeded`, `failed`, `skipped`, `pinned`.
+- [Закрепление](/how-quests-work/pinning.md) — как `pin` выглядит на стороне игрока.
+- [Формат файла квеста](/datapack-reference/quest-file-format.md) — те же поля (`title`, `icon`, `repeatable`, `pin_mode`) в JSON датапака.
+- [Предметы](/player-view/items.md) — свиток и книга квеста.
+- [Паттерны квестов](/quest-patterns/quest-patterns.md) — готовые сборки на этих командах.

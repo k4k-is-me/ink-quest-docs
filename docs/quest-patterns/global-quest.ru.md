@@ -150,7 +150,7 @@ InkQuest хранит активную задачу для каждого уча
 
 ### `condition.failure` тоже глобален
 
-Если задать `failure` через тот же `score` (например, «если за 30 минут не успели»), провал прилетит **всем одновременно** — что и нужно для ивента. См. [ЗАДАЧА С ДВУМЯ ИСХОДАМИ](/quest-patterns/task-with-two-outcomes.md) про эту механику.
+Если задать `failure` через тот же `score` (например, «если за 30 минут не успели»), провал прилетит **всем одновременно** — что и нужно для ивента. См. [Задача с двумя исходами](/quest-patterns/task-with-two-outcomes.md) про эту механику.
 
 ---
 
@@ -258,7 +258,7 @@ execute as @a[tag=voted,tag=!counted] run function event:count_vote
 
 ## См. также
 
-- [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md) — спецификация условий `score` и `global_score`
-- [ХУКИ ЖИЗНЕННОГО ЦИКЛА ЗАДАЧИ](/datapack-reference/task-lifecycle-hooks.md) — спецификация хуков `load`, `tick`, `success` и других, что используются здесь
-- [ЗАДАЧА С ДВУМЯ ИСХОДАМИ](/quest-patterns/task-with-two-outcomes.md) — как добавить таймер провала для ивента
-- [ПОВТОРЯЕМЫЙ КВЕСТ](/quest-patterns/repeatable-quest.md) — для еженедельных ивентов с перезапуском
+- [Условия выполнения задачи](/datapack-reference/task-completion-conditions.md) — спецификация условий `score` и `global_score`
+- [Хуки жизненного цикла задачи](/datapack-reference/task-lifecycle-hooks.md) — спецификация хуков `load`, `tick`, `success` и других, что используются здесь
+- [Задача с двумя исходами](/quest-patterns/task-with-two-outcomes.md) — как добавить таймер провала для ивента
+- [Повторяемый квест](/quest-patterns/repeatable-quest.md) — для еженедельных ивентов с перезапуском

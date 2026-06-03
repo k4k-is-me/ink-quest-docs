@@ -109,12 +109,12 @@ give @s minecraft:tripwire_hook{display:{Name:'{"text":"Ключ от темни
 }
 ```
 
-Полный рабочий рецепт с этими функциями — серверный счётчик, общий для всех игроков, — собран в паттерне [ГЛОБАЛЬНЫЙ КВЕСТ](/quest-patterns/global-quest.md).
+Полный рабочий рецепт с этими функциями — серверный счётчик, общий для всех игроков, — собран в паттерне [Глобальный квест](/quest-patterns/global-quest.md).
 
 ---
 
 ## См. также
 
-- [ФОРМАТ ФАЙЛА КВЕСТА](/datapack-reference/quest-file-format.md) — поле `on` в общем списке полей задачи.
-- [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md) — условия `success`/`failure`, к завершению которых привязаны одноимённые хуки.
-- [ГЛОБАЛЬНЫЙ КВЕСТ](/quest-patterns/global-quest.md) — полный пример `load` + `tick`: накопление общего счёта всех игроков.
+- [Формат файла квеста](/datapack-reference/quest-file-format.md) — поле `on` в общем списке полей задачи.
+- [Условия выполнения задачи](/datapack-reference/task-completion-conditions.md) — условия `success`/`failure`, к завершению которых привязаны одноимённые хуки.
+- [Глобальный квест](/quest-patterns/global-quest.md) — полный пример `load` + `tick`: накопление общего счёта всех игроков.

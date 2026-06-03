@@ -271,7 +271,7 @@ tag @s add story.got_chapter_v2
 
 ## См. также
 
-- [ЦЕПОЧКА КВЕСТОВ](/quest-patterns/quest-chain.md) — после стартового квеста зависимые откроются автоматически
-- [РАЗВИЛКА И ПАМЯТЬ ВЫБОРА](/quest-patterns/branch-and-choice-memory.md) — если стартовый квест предлагает выбор класса/фракции
-- [ГЛОБАЛЬНЫЙ КВЕСТ](/quest-patterns/global-quest.md) — если стартовый квест включает игрока в текущий серверный ивент
-- [ХУКИ ЖИЗНЕННОГО ЦИКЛА ЗАДАЧИ](/datapack-reference/task-lifecycle-hooks.md) — функции и теги в `on.load`/`on.success` тоже могут готовить игрока
+- [Цепочка квестов](/quest-patterns/quest-chain.md) — после стартового квеста зависимые откроются автоматически
+- [Развилка и память выбора](/quest-patterns/branch-and-choice-memory.md) — если стартовый квест предлагает выбор класса/фракции
+- [Глобальный квест](/quest-patterns/global-quest.md) — если стартовый квест включает игрока в текущий серверный ивент
+- [Хуки жизненного цикла задачи](/datapack-reference/task-lifecycle-hooks.md) — функции и теги в `on.load`/`on.success` тоже могут готовить игрока
