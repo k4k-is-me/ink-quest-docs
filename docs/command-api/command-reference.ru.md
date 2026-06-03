@@ -275,7 +275,7 @@
 /quest query <player> <id> task <taskId> success|failure value|target|percent
 ```
 
-`success` / `failure` — условие выполнения или провала; `value` — текущее значение, `target` — целевое, `percent` — процент 0–100. Применимо к условиям с прогресс-баром (`score`, `all`, `tasks` — см. [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md)).
+`success` / `failure` — условие выполнения или провала; `value` — текущее значение, `target` — целевое, `percent` — процент 0–100. Применимо к условиям с прогресс-баром (`score`, `all`, `optionals` — см. [УСЛОВИЯ ВЫПОЛНЕНИЯ ЗАДАЧИ](/datapack-reference/task-completion-conditions.md)).
 
 | Метрика | Что возвращает |
 | --- | --- |

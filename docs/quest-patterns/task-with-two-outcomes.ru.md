@@ -328,9 +328,9 @@ tag @s add story.escort_failed
 
 ## Расширения
 
-### Условие провала через `failure: tasks`
+### Условие провала через `failure: optionals`
 
-Если квест должен провалиться, когда **другая задача в нём** провалена — используй `tasks`-условие:
+Если квест должен провалиться, когда **optional-задача этапа** провалена — используй `optionals`-условие. Предполагается, что `protect_ally` — единственная optional в этапе:
 
 ```json
 "final_battle": {
@@ -338,10 +338,9 @@ tag @s add story.escort_failed
   "condition": {
     "success": { "type": "predicate", "predicate": "story:dragon_dead" },
     "failure": {
-      "type": "tasks",
-      "tasks": ["protect_ally"],
+      "type": "optionals",
       "status": "failure",
-      "count": 1
+      "min": 1
     }
   }
 }

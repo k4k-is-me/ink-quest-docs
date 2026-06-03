@@ -275,7 +275,7 @@ Returns a **number** — the progress of a quest, a stage, or a task condition. 
 /quest query <player> <id> task <taskId> success|failure value|target|percent
 ```
 
-`success` / `failure` — the success or failure condition; `value` — the current value, `target` — the target, `percent` — a percentage 0–100. Applies to conditions with a progress bar (`score`, `all`, `tasks` — see [Task completion conditions](/datapack-reference/task-completion-conditions.md)).
+`success` / `failure` — the success or failure condition; `value` — the current value, `target` — the target, `percent` — a percentage 0–100. Applies to conditions with a progress bar (`score`, `all`, `optionals` — see [Task completion conditions](/datapack-reference/task-completion-conditions.md)).
 
 | Metric | What it returns |
 | --- | --- |

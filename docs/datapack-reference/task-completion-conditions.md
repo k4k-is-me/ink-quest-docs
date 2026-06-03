@@ -50,7 +50,7 @@ There are exactly seven types. There are no others — an unknown `type` causes 
 | [`all`](#composite-condition-all) | All nested conditions | Progress bar (met / total) |
 | [`any`](#composite-condition-any) | At least one nested condition | Binary |
 | [`none`](#composite-condition-none) | No nested condition | Binary |
-| [`tasks`](#task-status-condition-tasks) | Statuses of tasks in the same quest | Progress bar if the target > 1 |
+| [`optionals`](#optional-task-status-condition-optionals) | Statuses of the optional tasks in the active stage | Progress bar if `min > 1` |
 
 A **binary** condition is either met or not — it shows no progress bar under the task. A **progress bar** means the condition reports numeric progress toward a target.
 
@@ -105,8 +105,7 @@ The score is set to 600 when the task loads. Each tick it decreases (via `on.tic
 ```json
 {
 	"type": "score",
-	"objective": "blocks_placed",
-	"criterion": "minecraft.custom:minecraft.mine_block",
+	"objective": "mob_kills",
 	"to": 100,
 	"reset": false
 }
@@ -126,7 +125,7 @@ The score is set to 600 when the task loads. Each tick it decreases (via `on.tic
 }
 ```
 
-Like `score`, but checks the score of a **fixed holder** (`player`) instead of the context player. The objective criterion is always `dummy` — this type is for counters managed externally by functions and commands. The scoreboard value is **never written** when the task loads: with many players, each load would otherwise reset the shared counter.
+Like `score`, but checks the score of a **fixed holder** (`player`) instead of the context player. The `criterion` and `reset` fields are absent: the objective criterion is fixed (`dummy`) and the scoreboard value is **never written** when the task loads — with many players, each load would otherwise reset the shared counter.
 
 - `objective` — *required*. The scoreboard objective's name (created as `dummy` if it doesn't exist).
 - `player` — the holder's name. Supports fake players. Default: `"#GLOBAL"`.
@@ -230,57 +229,45 @@ The task completes when **none** of the sub-conditions is met. Binary: no progre
 
 ---
 
-## Task-status condition (`tasks`)
+## Optional-task status condition (`optionals`)
 
-Checks how many tasks **in the same quest** have a given status.
+Completes the task when the **optional tasks of the active stage** reach a given status.
 
 ```json
 {
-	"type": "tasks",
-	"tasks": ["task_id_1", "task_id_2"],
+	"type": "optionals",
 	"status": "success",
-	"count": 1
+	"min": 2
 }
 ```
 
-- `tasks` — the list of task IDs to check (the pool). If omitted or empty, the pool is built from the tasks of the **active stage**, **excluding the task that carries this condition**. An explicit list may name tasks from any stage of the same quest.
-- `status` — the expected status: `"success"`, `"failure"` or `"skipped"`. If omitted, a task in **any terminal** status counts (success, failure or skipped).
-- `count` — the minimum number of tasks with the wanted status. If omitted, **all** tasks in the pool must match.
+The pool is built automatically: all optional tasks in the active stage, **excluding** the stage's required task and the task that carries this condition. This means a condition on the required task watches all optional tasks; a condition on an optional task watches all other optional tasks.
 
-A progress bar appears when the target is known from the file and greater than 1: the target is `count`, or, without it, the length of the `tasks` list. So the form `{"type": "tasks"}` (the whole active stage) is binary and shows no progress bar, even though it still requires completing every task in the pool.
+- `status` — the expected status: `"success"`, `"failure"` or `"skipped"`. If omitted, a task in **any terminal** status counts.
+- `min` — the minimum number of tasks with the wanted status. If omitted, **all** optional tasks in the pool must match.
+
+If the pool is empty (no other optional tasks exist), the condition is met immediately. A progress bar appears when `min > 1`.
 
 ### Examples
 
-#### Both side tasks must succeed
+#### All optional tasks must succeed
 
-The stage's required task completes automatically once both optional tasks are done:
+The stage's required task completes automatically once every optional task succeeds:
 
 ```json
 {
-	"type": "tasks",
-	"tasks": ["side_task_a", "side_task_b"],
+	"type": "optionals",
 	"status": "success"
 }
 ```
 
-#### Complete at least 2 of 3 tasks
+#### Complete at least 2 out of 3 optional tasks
 
 ```json
 {
-	"type": "tasks",
-	"tasks": ["task_a", "task_b", "task_c"],
+	"type": "optionals",
 	"status": "success",
-	"count": 2
-}
-```
-
-#### Every task of the current stage must finish (in any status)
-
-The pool is all the **other** tasks of the active stage: the task carrying the condition isn't in it. So a condition on the stage's required task completes it once every optional task is done.
-
-```json
-{
-	"type": "tasks"
+	"min": 2
 }
 ```
 
@@ -306,6 +293,8 @@ Allowed values: `"success"`, `"failure"`, `"skip"`. The order in the array doesn
 The buttons are drawn under the task in the quest book. Hovering shows a tooltip. On click the server checks that the task is active and unfinished, then completes it with the chosen status.
 
 `buttons` and `condition` are independent — you can use them together. The buttons fire regardless of the condition's state.
+
+> Completing a task via a button, like `/quest complete`, moves the quest to `complete` only on the **next tick** — unlike automatic conditions. See [Quest structure](/how-quests-work/quest-structure.md#how-a-quests-outcome-is-built).
 
 ---
 
