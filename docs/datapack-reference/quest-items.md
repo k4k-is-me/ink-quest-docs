@@ -62,9 +62,9 @@ For example, a scroll for the quest `story:rescue_blacksmith`:
 
 Without the `Quest` field the scroll is empty and only reports an error when clicked. The same field is set in loot tables and merchant trades — anywhere the item is given with NBT.
 
-> Scrolls for different quests don't merge into one stack (their NBT differs). The maximum stack size is 16.
+> Scrolls don't stack — each one occupies its own inventory slot.
 
-What happens when a scroll is used — granting the quest, consumption, cooldown, failure reasons — is on [Items](/player-view/items.md#quest-scroll).
+What happens when a scroll is used — granting the quest, consumption, failure reasons — is on [Items](/player-view/items.md#quest-scroll).
 
 ---
 

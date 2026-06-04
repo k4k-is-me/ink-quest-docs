@@ -35,11 +35,11 @@ A consumable item bound to a single quest. Right-clicking grants that quest to t
 
 There is no crafting recipe. A scroll only reaches the player through a datapack or commands: loot tables, chests, merchants, the `/give` command. How to bind a scroll to a specific quest is in [Items in a datapack](/datapack-reference/quest-items.md#binding-a-scroll-to-a-quest).
 
-It stacks up to 16; scrolls for different quests don't merge into one stack.
+Scrolls don't stack — each one occupies its own inventory slot.
 
 ### How to use it
 
-Right-click while holding the scroll. If the quest is granted, the stack shrinks by 1 (in creative mode the scroll isn't consumed) and the book opens on the new quest. A 1-second cooldown absorbs an accidental double-click.
+Right-click while holding the scroll. If the quest is granted, the scroll is consumed (in creative mode it isn't consumed) and the book opens on the new quest.
 
 If the quest can't be granted, the scroll stays in hand and a hint with the reason appears on the action bar. That happens when the quest is already active, already completed (except [repeatable](/how-quests-work/repeatable-quests.md) ones), or when the map requires a book the player doesn't have.
 
