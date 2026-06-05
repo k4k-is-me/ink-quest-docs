@@ -36,10 +36,10 @@ In the syntax notation: `<required>` is a required argument, `[optional]` is opt
 ### `quest new`
 
 ```
-/quest new <id> [<title>] [<description>]
+/quest new <id> [<title>]
 ```
 
-Creates an empty dynamic quest. `title` and `description` can be set right away or later via `quest modify`.
+Creates an empty dynamic quest. Without `<title>`, the quest identifier is used as the title (e.g. `example:escape`). Title and description can be changed later via `quest modify`.
 
 **Errors:** a quest with this `id` already exists.
 
@@ -102,11 +102,11 @@ See [Pinning](/how-quests-work/pinning.md).
 ### `quest modify ... tasks add`
 
 ```
-/quest modify <id> tasks add required <taskId> [<title>] [<description>]
-/quest modify <id> tasks add optional <taskId> [<title>] [<description>]
+/quest modify <id> tasks add required <taskId> [<title>]
+/quest modify <id> tasks add optional <taskId> [<title>]
 ```
 
-Adds a task to the quest.
+Adds a task to the quest. Without `<title>`, the task ID is used as the title (e.g. `push_the_lever`).
 
 - `required` — creates a new stage with this task as its required task.
 - `optional` — adds an optional task to the last stage (requires at least one `required` first).
@@ -114,6 +114,16 @@ Adds a task to the quest.
 Tasks added by command **have no completion conditions** — they can only be finished with the [`quest complete`](#quest-complete--task) command.
 
 **Errors:** a task with this `taskId` already exists in the quest · `optional` on a quest with no stages.
+
+### `quest modify ... tasks description`
+
+```
+/quest modify <id> tasks <taskId> description <description>
+```
+
+Changes the description of a task.
+
+**Errors:** the task does not exist.
 
 ### `quest modify ... tasks remove`
 

@@ -18,9 +18,9 @@ Start with commands if you just want to get a feel for the system.
 We create the quest and its two tasks — one `required`, one `optional`:
 
 ```mcfunction
-/quest new example:escape "Escape" "There's no staying here any longer — but how do I get out?"
-/quest modify example:escape tasks add required push_the_lever "Find and pull the lever that opens the hatch" "When one of the guards stepped out, I caught a click somewhere at the far end of the room"
-/quest modify example:escape tasks add optional look_for_survivors "Find out what became of the survivors" "I should search the cells — maybe I'll find someone else who made it out alive"
+/quest new example:escape "Escape"
+/quest modify example:escape tasks add required push_the_lever "Find and pull the lever that opens the hatch"
+/quest modify example:escape tasks add optional look_for_survivors "Find out what became of the survivors"
 ```
 
 We give the quest to the player and pin it to the HUD:

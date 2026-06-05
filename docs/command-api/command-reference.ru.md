@@ -36,10 +36,10 @@
 ### `quest new`
 
 ```
-/quest new <id> [<title>] [<description>]
+/quest new <id> [<title>]
 ```
 
-Создаёт пустой динамический квест. `title` и `description` можно задать сразу или позже через `quest modify`.
+Создаёт пустой динамический квест. Без `<title>` заголовком становится идентификатор квеста (например `example:escape`). Заголовок и описание можно задать позже через `quest modify`.
 
 **Ошибки:** квест с таким `id` уже существует.
 
@@ -102,11 +102,11 @@
 ### `quest modify ... tasks add`
 
 ```
-/quest modify <id> tasks add required <taskId> [<title>] [<description>]
-/quest modify <id> tasks add optional <taskId> [<title>] [<description>]
+/quest modify <id> tasks add required <taskId> [<title>]
+/quest modify <id> tasks add optional <taskId> [<title>]
 ```
 
-Добавляет задачу к квесту.
+Добавляет задачу к квесту. Без `<title>` заголовком становится ID задачи (например `push_the_lever`).
 
 - `required` — создаёт новый этап с этой задачей как обязательной.
 - `optional` — добавляет необязательную задачу в последний этап (требует хотя бы одного `required`).
@@ -114,6 +114,16 @@
 Задачи, добавленные командой, **не имеют условий выполнения** — завершить их можно только командой [`quest complete`](#quest-complete--task).
 
 **Ошибки:** задача с таким `taskId` уже есть в квесте · `optional` в квест без этапов.
+
+### `quest modify ... tasks description`
+
+```
+/quest modify <id> tasks <taskId> description <description>
+```
+
+Меняет описание задачи.
+
+**Ошибки:** задача не существует.
 
 ### `quest modify ... tasks remove`
 

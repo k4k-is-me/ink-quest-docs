@@ -18,9 +18,9 @@
 Создаём квест и две его задачи — обязательную (`required`) и дополнительную (`optional`):
 
 ```mcfunction
-/quest new example:escape "Побег" "Здесь больше нельзя оставаться, но как же выбраться?"
-/quest modify example:escape tasks add required push_the_lever "Найти и опустить рычаг, открывающий люк" "Когда один из стражей выходил, мне удалось услышать щелчок в дальней части комнаты"
-/quest modify example:escape tasks add optional look_for_survivors "Узнать, что стало с выжившими" "Нужно обыскать камеры, может, удастся найти ещё кого-нибудь, кому удалось спастись"
+/quest new example:escape "Побег"
+/quest modify example:escape tasks add required push_the_lever "Найти и опустить рычаг, открывающий люк"
+/quest modify example:escape tasks add optional look_for_survivors "Узнать, что стало с выжившими"
 ```
 
 Выдаём квест игроку и закрепляем его в HUD:
