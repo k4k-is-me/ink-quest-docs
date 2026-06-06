@@ -50,7 +50,7 @@ There are exactly seven types. There are no others — an unknown `type` causes 
 | [`all`](#composite-condition-all) | All nested conditions | Progress bar (met / total) |
 | [`any`](#composite-condition-any) | At least one nested condition | Binary |
 | [`none`](#composite-condition-none) | No nested condition | Binary |
-| [`optionals`](#optional-task-status-condition-optionals) | Statuses of the optional tasks in the active stage | Progress bar if `min > 1` |
+| [`optionals`](#optional-task-status-condition-optionals) | Statuses of the optional tasks in the active stage | Progress bar (`k / N`)    |
 
 A **binary** condition is either met or not — it shows no progress bar under the task. A **progress bar** means the condition reports numeric progress toward a target.
 
@@ -246,7 +246,7 @@ The pool is built automatically: all optional tasks in the active stage, **exclu
 - `status` — the expected status: `"success"`, `"failure"` or `"skipped"`. If omitted, a task in **any terminal** status counts.
 - `min` — the minimum number of tasks with the wanted status. If omitted, **all** optional tasks in the pool must match.
 
-If the pool is empty (no other optional tasks exist), the condition is met immediately. A progress bar appears when `min > 1`.
+If the pool is empty (no other optional tasks exist), the condition is met immediately. This condition always shows a progress bar `k / N` in the HUD, where `k` is the number of matching tasks and `N` is `min` or the pool size.
 
 ### Examples
 
