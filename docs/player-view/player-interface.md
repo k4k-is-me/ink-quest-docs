@@ -10,7 +10,7 @@ The HUD shows pinned quests directly over the game without opening any windows. 
 
 - the quest title;
 - all tasks of its current stage — the required task and any optional ones;
-- a progress bar for each task that has a numeric condition (such as `score` or `all`).
+- some tasks have a progress bar showing how far along you are.
 
 Multiple quests can be pinned at the same time. The HUD is animated: quests fade in and out smoothly, old tasks slide out and new ones slide in when the stage changes, and a short animation plays when a task completes.
 

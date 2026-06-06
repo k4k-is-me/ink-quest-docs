@@ -52,7 +52,7 @@ There are exactly seven types. There are no others — an unknown `type` causes 
 | [`none`](#composite-condition-none) | No nested condition | Binary |
 | [`optionals`](#optional-task-status-condition-optionals) | Statuses of the optional tasks in the active stage | Progress bar (`k / N`)    |
 
-A **binary** condition is either met or not — it shows no progress bar under the task. A **progress bar** means the condition reports numeric progress toward a target.
+A **binary** condition is either met or not — it shows no progress bar. A **progress bar** means the condition reports numeric progress toward a target; the bar is shown only when the target value is greater than 1 (for example, `score` with a range of 0 → 1 or `all` with a single sub-condition — no bar).
 
 ---
 
@@ -69,7 +69,7 @@ A **binary** condition is either met or not — it shows no progress bar under t
 }
 ```
 
-Uses Minecraft's scoreboard system. Checks the **context player's** score (the one doing the quest). A task with this condition shows a progress bar in the HUD.
+Uses Minecraft's scoreboard system. Checks the **context player's** score (the one doing the quest). If the range from `from` to `to` spans more than 1, a progress bar appears under the task in the HUD.
 
 - `objective` — *required*. The scoreboard objective's name. If no such objective exists, it is created with the type from `criterion` when the task loads.
 - `criterion` — the objective's type **at the moment it is created**. If an objective with this name already exists, the field is ignored. Any type Minecraft supports is allowed (full list on the [wiki](https://minecraft.wiki/w/Scoreboard#Criteria)). Default: `"dummy"`.
@@ -246,7 +246,7 @@ The pool is built automatically: all optional tasks in the active stage, **exclu
 - `status` — the expected status: `"success"`, `"failure"` or `"skipped"`. If omitted, a task in **any terminal** status counts.
 - `min` — the minimum number of tasks with the wanted status. If omitted, **all** optional tasks in the pool must match.
 
-If the pool is empty (no other optional tasks exist), the condition is met immediately. This condition always shows a progress bar `k / N` in the HUD, where `k` is the number of matching tasks and `N` is `min` or the pool size.
+If the pool is empty (no other optional tasks exist), the condition is met immediately. When N > 1, the HUD shows a progress bar `k / N`, where `k` is the number of matching tasks and `N` is `min` or the pool size. When N ≤ 1, no bar is shown.
 
 ### Examples
 
